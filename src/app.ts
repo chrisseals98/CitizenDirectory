@@ -1,11 +1,14 @@
 import express from "express";
-import { APP_SETTINGS } from "../application.properties";
+import { APP_SETTINGS } from "../env.local";
 
 const app = express();
 const port = APP_SETTINGS.PORT_NUMBER;
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+app.get("/status", (request, response) => {
+    const status = {
+       status: "Running"
+    };
+    response.send(status);
 });
 
 app.listen(port, () => {
