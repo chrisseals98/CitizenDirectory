@@ -5,7 +5,8 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
-    files: ["**/*.{js,mjs,cjs,ts}"]
+    files: ["**/*.{js,mjs,cjs,ts}"],
+    "@typescript-eslint/no-unused-vars": ["error"]
   },
   {
     languageOptions: {

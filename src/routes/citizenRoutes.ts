@@ -3,13 +3,24 @@ import { Citizen } from "../models/citizen";
 
 export const citizenRouter = Router();
 
-citizenRouter.get("/", async (req, res) => {
+citizenRouter.get("/", async (request, response) => {
     try {
-        const citizens = await Citizen.findAll();
-        res.status(200).json(citizens);
+        const citizenId = Number(request.query.id);
+        if(citizenId) {
+            const citizens = await Citizen.findByPk(citizenId);
+            await setTimeout(() => {
+                response.status(200).json(citizens); 
+            }, 3000);
+        }
+        else {
+            const citizens = await Citizen.findAll();
+            await setTimeout(() => {
+                response.status(200).json(citizens); 
+            }, 3000);
+        }
     }
     catch (error) {
         console.log("ERROR AT GET", error);
-        res.status(500).json({error: "Internal Server Error"});
+        response.status(500).json({error: "Internal Server Error"});
     }
 });
