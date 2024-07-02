@@ -5,7 +5,7 @@ This project was created with the idea of being in a dystopian cyberpunk univers
 - The frontend that uses this project can be found here: [Front End](https://github.com/chrisseals98/Delta)
 
 ### Technologies Used
-This project the backend and uses Express for the API and Sequelize for data querying.
+This project uses Express for an API and Sequelize as the ORM for data querying. Swagger is also used for some API documentation*, but more documentation needs to be added!*
 
 ### Setup
 - `npm install`
